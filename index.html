@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WD Practicls</title>
+    <style>
+        :root {
+            --bg-dark: #050b1c;
+            --bg-glow: rgba(80, 180, 255, 0.12);
+            --button-bg: #0f1833;
+            --button-border: #56b8ff;
+            --button-border-strong: #8be3ff;
+            --button-hover: #1c2f55;
+            --text-light: #eaf6ff;
+            --text-accent: #7ae8ff;
+            --shadow: 0 20px 50px rgba(0, 132, 255, 0.18);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-light);
+            background: radial-gradient(circle at top, rgba(45, 172, 255, 0.18), transparent 28%),
+                        radial-gradient(circle at left, rgba(49, 231, 255, 0.08), transparent 22%),
+                        linear-gradient(135deg, #020612 0%, #071123 35%, #0f1b37 65%, #071226 100%);
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.12), transparent 16%),
+                        radial-gradient(circle at 80% 10%, rgba(118, 208, 255, 0.14), transparent 12%),
+                        radial-gradient(circle at 50% 85%, rgba(41, 111, 255, 0.12), transparent 22%);
+            pointer-events: none;
+            opacity: 0.9;
+        }
+
+        .page-wrap {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 32px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(18px);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 24px 60px rgba(0, 0, 0, 0.28);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.8rem, 4vw, 4.6rem);
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #d6f3ff;
+            text-shadow: 0 0 18px rgba(122, 232, 255, 0.42);
+        }
+
+        p.subtitle {
+            margin: 14px auto 0;
+            max-width: 760px;
+            color: rgba(234, 246, 255, 0.78);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
+            margin-top: 36px;
+        }
+
+        .card {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 130px;
+            padding: 0 24px;
+            text-decoration: none;
+            color: var(--text-light);
+            background: linear-gradient(180deg, rgba(15, 24, 51, 0.96), rgba(11, 24, 49, 0.92));
+            border: 2px solid transparent;
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 0.02em;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(135deg, rgba(118, 232, 255, 0.35), rgba(110, 144, 255, 0.18));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .card span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-6px) scale(1.01);
+            border-color: rgba(138, 232, 255, 0.85);
+            background: linear-gradient(180deg, rgba(17, 41, 86, 0.98), rgba(8, 21, 43, 0.98));
+            box-shadow: 0 28px 70px rgba(15, 102, 255, 0.28);
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(110, 232, 255, 0.25), transparent 30%);
+            opacity: 0.6;
+        }
+
+        .card.highlight {
+            border-color: #7ae8ff;
+            box-shadow: 0 0 0 1px rgba(122, 232, 255, 0.4), 0 28px 60px rgba(34, 135, 255, 0.24);
+        }
+
+        .footer {
+            margin-top: 44px;
+            text-align: center;
+            color: rgba(234, 246, 255, 0.65);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 720px) {
+            .page-wrap {
+                padding: 24px 16px 40px;
+            }
+
+            header {
+                padding: 26px 18px;
+            }
+
+            .card {
+                min-height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrap">
+        <header>
+            <h1>WD Practicls</h1>
+            <p class="subtitle">Quick access to every practical. Tap any button to open the selected practical in a radiant lightning-style interface.</p>
+        </header>
+
+        <div class="grid">
+            <a class="card highlight" href="Practical1.html"><span>Practical 1</span></a>
+            <a class="card highlight" href="Practical2.html"><span>Practical 2</span></a>
+            <a class="card highlight" href="Practical3.html"><span>Practical 3</span></a>
+            <a class="card highlight" href="Practical4.html"><span>Practical 4</span></a>
+            <a class="card highlight" href="Practical5.html"><span>Practical 5</span></a>
+            <a class="card highlight" href="Practical6.html"><span>Practical 6</span></a>
+            <a class="card highlight" href="Practical7.html"><span>Practical 7</span></a>
+            <a class="card highlight" href="Practical8(A).html"><span>Practical 8(A)</span></a>
+            <a class="card highlight" href="Practical8(B).html"><span>Practical 8(B)</span></a>
+            <a class="card highlight" href="Practical9.html"><span>Practical 9</span></a>
+            <a class="card highlight" href="Practical10.html"><span>Practical 10</span></a>
+            <a class="card highlight" href="Practical11.xml"><span>Practical 11 XML</span></a>
+            <a class="card highlight" href="Practical12.xml"><span>Practical 12 XML</span></a>
+            <a class="card highlight" href="Practical13.xml"><span>Practical 13 XML</span></a>
+        </div>
+
+        <div class="footer">If any link does not open, make sure the file exists in the same folder as this page.</div>
+    </div>
+</body>
+</html>
