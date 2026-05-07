@@ -1,10 +1,7 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <h3>Name: Diya Sanjay Khamkar</h3>
-    <h3>Roll No: 48</h3>
-    <h3>Branch: CSE(A)</h3>
+<html lang="en">
 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML Image Tag Implementation</title>
@@ -18,6 +15,10 @@
 
         h1 {
             text-align: center;
+        }
+
+        .info {
+            margin-bottom: 20px;
         }
 
         .box {
@@ -54,6 +55,12 @@
 
 <body>
 
+    <div class="info">
+        <h3>Name: Diya Sanjay Khamkar</h3>
+        <h3>Roll No: 48</h3>
+        <h3>Branch: CSE(A)</h3>
+    </div>
+
     <h1>Image Tags Example</h1>
 
     <div class="box">
@@ -64,15 +71,20 @@
 
     <div class="box">
         <h2>2. Image with Caption (&lt;figure&gt; &amp; &lt;figcaption&gt;)</h2>
+
         <figure>
             <img src="Images/Image with Caption.png"
                  alt="Image with Caption Example">
-            <figcaption>This is an example of an image with caption.</figcaption>
+
+            <figcaption>
+                This is an example of an image with caption.
+            </figcaption>
         </figure>
     </div>
- 
+
     <div class="box">
-        <h2>3. Responsive Image (&lt;img class="responsive"&gt;)</h2>
+        <h2>3. Responsive Image (&lt;img class=&quot;responsive&quot;&gt;)</h2>
+
         <img src="Images/Responsive Tag.png"
              alt="Responsive Image Example"
              class="responsive">
@@ -80,7 +92,11 @@
 
     <div class="box">
         <h2>4. Image as a Link (&lt;a&gt; + &lt;img&gt;)</h2>
-        <a href="https://www.google.com" target="_blank">
+
+        <a href="https://www.google.com"
+           target="_blank"
+           rel="noopener noreferrer">
+
             <img src="Images/Image as a link.png"
                  alt="Clickable Image">
         </a>
@@ -90,22 +106,28 @@
         <h2>5. Animated Image (GIF &amp; CSS Animation)</h2>
 
         <p><strong>Animated GIF:</strong></p>
+
         <img src="https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif"
              alt="Animated GIF"
-             width="200">
+             width="200"
+             class="animate">
     </div>
 
     <div class="box">
         <h2>6. Image Map (&lt;map&gt; &amp; &lt;area&gt;)</h2>
+
         <img src="Images/image maps.png"
              alt="Image Map Example"
              usemap="#imagemap">
 
         <map name="imagemap">
-            <area shape="rect" coords="0,0,200,200"
+            <area shape="rect"
+                  coords="0,0,200,200"
                   href="https://www.google.com"
                   alt="Left Side">
-            <area shape="rect" coords="200,0,400,200"
+
+            <area shape="rect"
+                  coords="200,0,400,200"
                   href="https://www.wikipedia.org"
                   alt="Right Side">
         </map>
